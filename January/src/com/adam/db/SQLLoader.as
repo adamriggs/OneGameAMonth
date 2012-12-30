@@ -11,12 +11,12 @@ package com.adam.db {
 	
 	//import gs.TweenMax;
 	
-	import com.adam.utils.AppData;
+	import com.adam.utils.Utils;
 	import com.adam.events.MuleEvent;
 	
 	public class SQLLoader {
 		
-		private var appData:AppData=AppData.instance;
+		private var utils:Utils=Utils.instance;
 		
 		private var _reciever:String;
 		private var _url:String;
@@ -87,7 +87,7 @@ package com.adam.db {
 			debug("query complete");
 			//debug("sql data: "+e.currentTarget.data);
 			debug("url=="+_url);
-			appData.eventManager.dispatch(_reciever, {type:"sqlResult", xml:e.currentTarget.data, url:_url});
+			utils.em.dispatch(_reciever, {type:"sqlResult", xml:e.currentTarget.data, url:_url});
 		}
 		
 		private function onError(e:IOErrorEvent):void{
@@ -121,7 +121,7 @@ package com.adam.db {
 		//**debug
 		private function debug(str:String):void{
 			trace(str);
-			//appData.eventManager.dispatch("debug", {msg:str, sender:"SQLLoader"});
+			//utils.eventManager.dispatch("debug", {msg:str, sender:"SQLLoader"});
 		}
 		
 		

@@ -8,12 +8,12 @@ package com.adam.db {
 	
 	//import gs.TweenMax;
 	
-	import com.adam.utils.AppData;
+	import com.adam.utils.Utils;
 	import com.adam.events.MuleEvent;
 	
 	public class SQLProxy extends Sprite {
 		
-		private var appData:AppData=AppData.instance;
+		private var utils:Utils=Utils.instance;
 		
 		private var _baseURL:String;
 		private var _insertURL:String;
@@ -145,7 +145,7 @@ package com.adam.db {
 		//**debug
 		private function debug(str:String):void{
 			trace(str);
-			appData.eventManager.dispatch("debug", {msg:str, sender:"SQLProxy"});
+			utils.em.dispatch("debug", {msg:str, sender:"SQLProxy"});
 		}
 		
 	
